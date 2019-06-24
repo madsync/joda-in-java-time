@@ -5,13 +5,20 @@ import scoverage.ScoverageKeys._
 
 credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
-def publishDest: Option[Resolver] = Some("Artifactory Realm" at "https://symphonyai.jfrog.io/symphonyai/symphony-local")
+def publishDest: Option[Resolver] = {
+  val nexus = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+  Some("releases"  at nexus)
+}
 
 name := "joda-in-java-time"
 
-version := "0.1"
+version := "0.1.1"
 
 scalaVersion := "2.13.0"
+
+developers := List(
+  Developer("keith", "Keith Nordstrom", "keith@madsync.com", url("http://keithnordstrom.com"))
+)
 
 //
 // Org  stuff
@@ -27,6 +34,7 @@ publishArtifact in packageDoc := false
 publishMavenStyle := true
 //
 publishTo := publishDest // must use aliases to publish
+
 //
 pomExtra :=
   <url>http://www.madsync.com</url>
