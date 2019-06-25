@@ -115,7 +115,7 @@ object DateTimeZone extends LazyLogging {
         groupedOffsetsMap.get(k).map { offsets =>
           k -> (ids ++ offsets)
         }.getOrElse {
-          logger.info(s"No equivalent offset found for ${ids}")
+          logger.trace(s"No equivalent offset found for ${ids}")
           k -> ids
         }
     }
