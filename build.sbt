@@ -2,6 +2,7 @@ import Dependencies._
 import scalariform.formatter.preferences._
 import sbt.Resolver
 import scoverage.ScoverageKeys._
+import org.scoverage.coveralls.Imports.CoverallsKeys._
 
 credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
@@ -34,6 +35,8 @@ publishArtifact in packageDoc := false
 publishMavenStyle := true
 //
 publishTo := publishDest // must use aliases to publish
+
+coverallsToken := Some("V5OygiTTyLOCH2YuD36AMQs27YZFTA61w")
 
 //
 pomExtra :=
