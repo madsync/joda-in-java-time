@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/madsync/joda-in-java-time.png)](https://travis-ci.org/madsync/joda-in-java-time)
+
 # joda-in-java-time
 This project aims to implement an API as similar as possible to that of the Joda project, which has been in wide use across the Java stack and was recently deprecated in favor of Java's time implementation. 
 

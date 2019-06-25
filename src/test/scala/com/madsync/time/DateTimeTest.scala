@@ -241,7 +241,7 @@ class DateTimeTest extends FunSuite with Matchers {
     }.isSuccess should be(true)
 
     dtReads.reads(JsNumber(1234567890000L)).map { dt =>
-      val expected = DateTime(2009, 2, 13, 0, 0, 0, DateTimeZone.forOffsetHours(-7))
+      val expected = DateTime(2009, 2, 13, 0, 0, 0, DateTimeZone.getDefault)
       dt.date.toLocalDate should be(expected.date.toLocalDate)
       dt.date.getOffset should be(expected.date.getOffset)
     }.isSuccess should be(true)
