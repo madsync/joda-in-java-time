@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/madsync/joda-in-java-time.png)](https://travis-ci.org/madsync/joda-in-java-time)
+[![Build Status](https://travis-ci.com/madsync/joda-in-java-time.svg?branch=master)](https://travis-ci.com/madsync/joda-in-java-time.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/madsync/joda-in-java-time/badge.png?branch=master)](https://coveralls.io/r/madsync/joda-in-java-time?branch=master)
 
 # joda-in-java-time
 This project aims to implement an API as similar as possible to that of the Joda project, which has been in wide use across the Java stack and was recently deprecated in favor of Java's time implementation. 
