@@ -12,7 +12,7 @@ def publishDest: Option[Resolver] = {
 
 name := "joda-in-java-time"
 
-version := "0.1.1"
+version := "0.1.2"
 
 scalaVersion := "2.13.0"
 
@@ -23,7 +23,7 @@ developers := List(
 //
 // Org  stuff
 organization := "com.madsync"
-version := Version.libraryDateVersioning
+//version := Version.libraryDateVersioning
 scalaVersion := Version.ScalaVersionToUse
 //
 // Compile time optimizations
