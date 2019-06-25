@@ -14,7 +14,7 @@ name := "joda-in-java-time"
 
 version := "0.1.2"
 
-scalaVersion := "2.13.0"
+scalaVersion := Version.ScalaVersionToUse
 
 developers := List(
   Developer("keith", "Keith Nordstrom", "keith@madsync.com", url("http://keithnordstrom.com"))
