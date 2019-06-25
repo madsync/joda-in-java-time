@@ -3,6 +3,7 @@ import scalariform.formatter.preferences._
 import sbt.Resolver
 import scoverage.ScoverageKeys._
 import org.scoverage.coveralls.Imports.CoverallsKeys._
+import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
 credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
@@ -23,6 +24,7 @@ developers := List(
 
 //
 // Org  stuff
+useGpg := true
 organization := "com.madsync"
 //version := Version.libraryDateVersioning
 scalaVersion := Version.ScalaVersionToUse
@@ -64,6 +66,23 @@ pomExtra :=
         <url>http://www.timeil.io</url>
       </developer>
     </developers>
+
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  runTest,
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  ReleaseStep(action = Command.process("sonatypeOpen \"com.madsync\" \"joda-in-java-time\"", _)),
+  ReleaseStep(action = Command.process("publishSigned", _)),
+  setNextVersion,
+  commitNextVersion,
+  ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
+  pushChanges
+)
+
 //
 // Compiler configuration
 scalacOptions ++= Seq(
