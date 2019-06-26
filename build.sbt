@@ -14,58 +14,34 @@ def publishDest: Option[Resolver] = {
 
 name := "joda-in-java-time"
 
-version := "0.1.2"
+version := "0.1.3"
 
 scalaVersion := Version.ScalaVersionToUse
+
+homepage := Some(url("https://github.com/madsync/joda-in-java-time"))
 
 developers := List(
   Developer("keith", "Keith Nordstrom", "keith@madsync.com", url("http://keithnordstrom.com"))
 )
 
+licenses := Seq("Apache-2.0" -> url("https://opensource.org/licenses/Apache-2.0"))
+
 //
 // Org  stuff
-useGpg := true
 organization := "com.madsync"
 //version := Version.libraryDateVersioning
 scalaVersion := Version.ScalaVersionToUse
 //
 // Compile time optimizations
-publishArtifact in(Test, packageBin) := true // Publish tests jarsproject
+publishArtifact in(Test, packageBin) := true // Publish tests jars
 publishArtifact in(Test, packageSrc) := true // Publish tests-source jars
-publishArtifact in(Compile, packageDoc) := false // Disable ScalaDoc generation
+publishArtifact in(Compile, packageDoc) := true // Publish ScalaDoc jars
 publishArtifact in packageDoc := false
 publishMavenStyle := true
 //
 publishTo := publishDest // must use aliases to publish
 
 coverallsToken := Some("V5OygiTTyLOCH2YuD36AMQs27YZFTA61w")
-
-//
-pomExtra :=
-  <url>http://www.madsync.com</url>
-    <licenses>
-      <license>
-        <name>Lesser GPL 3.0</name>
-        <url>https://opensource.org/licenses/LGPL-3.0</url>
-        <distribution>repo</distribution>
-      </license>
-    </licenses>
-    <scm>
-      <url>https://github.com/madsync/joda-in-java-time.git</url>
-      <connection>scm:https://github.com/madsync/joda-in-java-time.git</connection>
-    </scm>
-    <developers>
-      <developer>
-        <id>knordstrom</id>
-        <name>Keith Nordstrom</name>
-        <url>http://www.timeil.io</url>
-      </developer>
-      <developer>
-        <id>dbuschman7</id>
-        <name>David Buschman</name>
-        <url>http://www.timeil.io</url>
-      </developer>
-    </developers>
 
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
@@ -76,7 +52,7 @@ releaseProcess := Seq[ReleaseStep](
   commitReleaseVersion,
   tagRelease,
   ReleaseStep(action = Command.process("sonatypeOpen \"com.madsync\" \"joda-in-java-time\"", _)),
-  ReleaseStep(action = Command.process("publishSigned", _)),
+  ReleaseStep(action = Command.process("publish", _)),
   setNextVersion,
   commitNextVersion,
   ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
