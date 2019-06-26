@@ -16,5 +16,5 @@ The project is built in Scala using sbt. Having a Java wrapper (in order to port
 The binaries are hosted at sonatype:
 
 ```
-libraryDependencies += "com.madsync" % "joda-in-java-time" % "0.1.2" withSources()
+libraryDependencies += "com.madsync" % "joda-in-java-time" % "0.1.3" withSources()
 ```
