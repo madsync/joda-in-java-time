@@ -28,9 +28,9 @@ final case class DateTime(date: ZonedDateTime) {
   }
 
   def withYear(value: Int): DateTime = copy(date = date.withYear(value))
-  def withHourOfDay(value: Int): DateTime= copy(date = date.withHour(value))
-  def withMonthOfYear(value: Int): DateTime= copy(date = date.withMonth(value))
-  def withDayOfMonth(value: Int): DateTime= copy(date = date.withDayOfMonth(value))
+  def withHourOfDay(value: Int): DateTime = copy(date = date.withHour(value))
+  def withMonthOfYear(value: Int): DateTime = copy(date = date.withMonth(value))
+  def withDayOfMonth(value: Int): DateTime = copy(date = date.withDayOfMonth(value))
 
   def getMillis: Long = {
     import java.time.temporal.ChronoField._
