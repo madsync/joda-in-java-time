@@ -14,7 +14,7 @@ def publishDest: Option[Resolver] = {
 
 name := "joda-in-java-time"
 
-version := "0.1.3"
+version := "0.1.4"
 
 scalaVersion := Version.ScalaVersionToUse
 

@@ -27,6 +27,11 @@ final case class DateTime(date: ZonedDateTime) {
     dateTimeZone.getOffsetTime(this)
   }
 
+  def withYear(value: Int): DateTime = copy(date = date.withYear(value))
+  def withHourOfDay(value: Int): DateTime= copy(date = date.withHour(value))
+  def withMonthOfYear(value: Int): DateTime= copy(date = date.withMonth(value))
+  def withDayOfMonth(value: Int): DateTime= copy(date = date.withDayOfMonth(value))
+
   def getMillis: Long = {
     import java.time.temporal.ChronoField._
     1000 * date.getLong(INSTANT_SECONDS) + date.getLong(MILLI_OF_SECOND)

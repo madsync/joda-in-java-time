@@ -251,6 +251,15 @@ class DateTimeTest extends FunSuite with Matchers {
     dtReads.reads(JsString("bad date")).isSuccess should be(false)
   }
 
+  test("test some withs") {
+    val date = DateTime(2018, 5, 15, 0, 0, 0, DateTimeZone.UTC)
+
+    date.withYear(2016) should be(DateTime(2016, 5, 15, 0, 0, 0, DateTimeZone.UTC))
+    date.withHourOfDay(13) should be(DateTime(2018, 5, 15, 13, 0, 0, DateTimeZone.UTC))
+    date.withMonthOfYear(11) should be(DateTime(2018, 11, 15, 0, 0, 0, DateTimeZone.UTC))
+    date.withDayOfMonth(23) should be(DateTime(2018, 5, 23, 0, 0, 0, DateTimeZone.UTC))
+  }
+
   test("test reads with nanos") {
     val dtReads = DateTime.dtFormat
     //nanoseconds now
